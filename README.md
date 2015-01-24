@@ -1,4 +1,4 @@
-# Http Request [![Build Status](https://travis-ci.org/kevinsawicki/http-request.png)](https://travis-ci.org/kevinsawicki/http-request)
+# Http Request [![Build Status](https://travis-ci.org/kevinsawicki/http-request.svg)](https://travis-ci.org/kevinsawicki/http-request)
 
 A simple convenience library for using a [HttpURLConnection](http://download.oracle.com/javase/6/docs/api/java/net/HttpURLConnection.html)
 to make requests and access the response.
@@ -13,7 +13,7 @@ The http-request library is available from [Maven Central](http://search.maven.o
 <dependency>
   <groupId>com.github.kevinsawicki</groupId>
   <artifactId>http-request</artifactId>
-  <version>5.6</version>
+  <version>6.0</version>
 </dependency>
 ```
 
@@ -126,6 +126,14 @@ HttpRequest.get("http://google.com").receive(System.out);
 ```java
 HttpRequest request = HttpRequest.get("http://google.com", true, 'q', "baseball gloves", "size", 100);
 System.out.println(request.toString()); // GET http://google.com?q=baseball%20gloves&size=100
+```
+
+### Using arrays as query parameters
+
+```java
+int[] ids = new int[] { 22, 23 };
+HttpRequest request = HttpRequest.get("http://google.com", true, "id", ids);
+System.out.println(request.toString()); // GET http://google.com?id[]=22&id[]=23
 ```
 
 ### Working with request/response headers
@@ -269,3 +277,4 @@ HttpRequest.setConnectionFactory(new ConnectionFactory() {
 * [David Pate](https://github.com/DavidTPate) :: [contributions](https://github.com/kevinsawicki/http-request/commits?author=DavidTPate)
 * [Anton Rieder](https://github.com/aried3r) :: [contributions](https://github.com/kevinsawicki/http-request/commits?author=aried3r)
 * [Jean-Baptiste Lièvremont](https://github.com/jblievremont) :: [contributions](https://github.com/kevinsawicki/http-request/commits?author=jblievremont)
+* [Roman Petrenko](https://github.com/romanzes) :: [contributions](https://github.com/kevinsawicki/http-request/commits?author=romanzes)
